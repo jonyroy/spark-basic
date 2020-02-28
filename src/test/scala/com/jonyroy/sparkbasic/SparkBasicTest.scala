@@ -1,5 +1,5 @@
 package com.jonyroy.sparkbasic
 
-class SparkBasic {
+class SparkBasicTest {
 
 }

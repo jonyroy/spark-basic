@@ -8,4 +8,6 @@ libraryDependencies += "org.apache.spark" %% "spark-core" % "2.4.5"
 
 libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.4.5"
 
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.1.1" % Test
+
 transitiveClassifiers in Global := Seq(Artifact.SourceClassifier)
