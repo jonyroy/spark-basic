@@ -1,0 +1,4 @@
+sparkContext.parallelize is used to parallelize an existing collection in your driver program.
+This is a basic method to create RDD and used mainly while POC’s or prototyping
+and it required all data to be present on the driver program prior to creating RDD
+hence it is not most used for production applications.
