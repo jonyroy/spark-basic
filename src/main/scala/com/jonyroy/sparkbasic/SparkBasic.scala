@@ -13,7 +13,7 @@ object SparkBasic {
       .master("local[*]")
       .getOrCreate()
 
-    val count = WordsCounting()
+    val count = WordsCounting.countWords()
 
     println(s"Total Words Count: ${count}")
 
