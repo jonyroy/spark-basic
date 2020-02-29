@@ -1,14 +1,14 @@
 package com.jonyroy.sparkbasic.word.counting
 
+import com.jonyroy.sparkbasic.SparkSessionObj
 import com.jonyroy.sparkbasic.utils.DataDirectory
 import org.apache.spark.rdd.RDD
-import org.apache.spark.sql.SparkSession
 
-object WordsCounting {
+object WordsCounting extends SparkSessionObj {
 
-  def countUniqueWords(implicit sparkSession: SparkSession): Long = getWordsCountRDD.count()
+  def countUniqueWords: Long = getWordsCountRDD.count()
 
-  def getWordsCountRDD(implicit sparkSession: SparkSession): RDD[(String, Int)] = {
+  def getWordsCountRDD: RDD[(String, Int)] = {
 
     sparkSession
       .sparkContext
@@ -20,8 +20,7 @@ object WordsCounting {
 
   private def inputPath: String = DataDirectory.getDataDir + "WordsCounting" + "/*"
 
-  def getMostFrequentWords(numOfFrequentWords: Int = 1)(
-    implicit sparkSession: SparkSession): List[(String, Int)] = {
+  def getMostFrequentWords(numOfFrequentWords: Int = 1): List[(String, Int)] = {
 
     getWordsCountRDD
       .sortBy(_._2, false)
@@ -29,9 +28,9 @@ object WordsCounting {
       .toList
   }
 
-  private def apply()(implicit sparkSession: SparkSession): Long = countWords()
+  private def apply(): Long = countWords()
 
-  def countWords()(implicit sparkSession: SparkSession): Long = {
+  def countWords(): Long = {
 
     getWordsCountRDD
       .map(_._2)
